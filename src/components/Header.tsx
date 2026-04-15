@@ -23,8 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
             MR. NIKA
           </Link>
         </div>
-
-        {/* Desktop ნავიგაცია */}
+        
         <nav className="hidden md:flex gap-8">
           {links.map((link) => (
             <Link 
@@ -37,13 +36,11 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
           ))}
         </nav>
 
-        {/* მობილურის ჰამბურგერი */}
         <button className="md:hidden text-yellow-500 text-2xl" onClick={toggleMenu}>
           {isMenuOpen ? '✕' : '☰'}
         </button>
       </div>
 
-      {/* მობილურის მენიუ */}
       {isMenuOpen && (
         <nav className="md:hidden absolute top-20 left-0 w-full bg-black/95 border-b border-yellow-500/20 flex flex-col py-4 px-6 gap-4 shadow-2xl">
           {links.map((link) => (

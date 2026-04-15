@@ -10,7 +10,6 @@ interface HeroProps {
 export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-[85vh] text-center px-4 overflow-hidden bg-black">
-      {/* ოქროსფერი უკანა ფონის ეფექტი (Glow) */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-yellow-600/15 blur-[150px] rounded-full z-0 pointer-events-none" />
 
       {/* კონტენტი */}

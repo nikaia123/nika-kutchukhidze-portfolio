@@ -1,7 +1,7 @@
 
 import { Header, type NavLink } from './Header';
 import { Footer } from './Footer';
-import React, { ReactNode } from 'react';
+import  type { ReactNode } from 'react';
 
 interface MainLayoutProps {
   children: ReactNode;
