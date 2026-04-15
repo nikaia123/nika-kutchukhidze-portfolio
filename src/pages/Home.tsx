@@ -6,21 +6,21 @@ import { Card } from '../components/Card';
 export const Home: React.FC = () => {
   const projects = [
     {
-      title: "",
-      image: "",
-      description: "",
+      title: "The Apex Modular",
+      image: "src/assets/atuka.webp",
+      description: "ექსტრემალური სპორტის საათის პროტოტიპი მოდულური SOS სისტემით.",
       tags: ["UI/UX", "Product Design", "React"]
     },
     {
-      title: "",
-      image: "",
-      description: "",
+      title: "Mafia Game Web",
+      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop",
+      description: "მაფიის სათამაშო პლატფორმა 11 მოთამაშისთვის ავტომატური როლებით.",
       tags: ["TypeScript", "React", "Tailwind CSS"]
     },
     {
-      title: "",
-      image: "",
-      description: "",
+      title: "E-Commerce Store",
+      image: "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=800&auto=format&fit=crop",
+      description: "ონლაინ მაღაზიის ინტერფეისი FakeStoreAPI-ის ინტეგრაციით.",
       tags: ["React", "API", "Context API"]
     }
   ];
@@ -44,7 +44,6 @@ export const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* პროექტების სექცია უკვე გამზადებული Card კომპონენტით */}
       <Section id="projects" title="ბოლო პროექტები">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {projects.map((project) => (
