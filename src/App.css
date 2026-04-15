@@ -1,4 +1,10 @@
-body{
-    background-color: black;
-    color: gold;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* აქ შეგიძლია დაამატო მხოლოდ გლობალური ცვლილებები, მაგალითად ფონტის შემოტანა */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: black;
 }
