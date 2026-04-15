@@ -8,6 +8,7 @@ interface MainLayoutProps {
 }
 
 const navigationLinks: NavLink[] = [
+  
   { label: 'მთავარი', path: '/' },
   { label: 'ჩვენ შესახებ', path: '/about' },
   { label: 'კონტაქტი', path: '/contact' }

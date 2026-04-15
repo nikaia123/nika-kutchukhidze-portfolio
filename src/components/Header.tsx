@@ -17,17 +17,15 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-
-  
   return (
     <header>
       <div className="logo">
-        <img src="src/assets/NK-removebg-preview.png " alt="" width={100} height={100} />
+        <img src="src/assets/NK-removebg-preview.png" alt="Nika Logo" width={100} height={100} />
       </div>
 
       <nav className="desktop-nav">
-        {links.map((link, index) => (
-          <Link key={index} to={link.path}>
+        {links.map((link) => (
+          <Link key={link.path} to={link.path}>
             {link.label}
           </Link>
         ))}
@@ -39,8 +37,8 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
 
       {isMenuOpen && (
         <nav className="mobile-menu">
-          {links.map((link, index) => (
-            <Link key={index} to={link.path} onClick={toggleMenu}>
+          {links.map((link) => (
+            <Link key={link.path} to={link.path} onClick={toggleMenu}>
               {link.label}
             </Link>
           ))}
