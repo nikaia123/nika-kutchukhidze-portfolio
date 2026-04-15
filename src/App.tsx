@@ -1,13 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import { BrowserRouter } from 'react-router-dom'
+import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import { MainLayout } from './components/MainLayout';
 
 function App() {
-  <BrowserRouter>
-  </BrowserRouter>
+  return (
+    <BrowserRouter>
+      <MainLayout>
+        <div style={{ padding: '50px', textAlign: 'center' }}>
+          <h1>გამარჯობა, ეს მთავარი გვერდია!</h1>
+        </div>
+      </MainLayout>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
