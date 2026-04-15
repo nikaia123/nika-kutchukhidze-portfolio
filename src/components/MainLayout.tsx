@@ -1,4 +1,4 @@
-// დაემატა 'type' ქივორდი NavLink-ისთვის
+
 import { Header, type NavLink } from './Header';
 import { Footer } from './Footer';
 import React, { ReactNode } from 'react';
