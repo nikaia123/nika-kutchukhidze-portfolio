@@ -3,7 +3,8 @@ import React from 'react';
 export const Footer: React.FC = () => {
   return (
     <footer>
-      <div className="contact-info">
+      <div style={{backgroundColor:'black', color:'gold'}}>
+        <div className="contact-info" >
         <p>კონტაქტი: info@example.com</p>
       </div>
       <div className="social-links">
@@ -13,6 +14,8 @@ export const Footer: React.FC = () => {
       <div className="copyright">
         <p>&copy; {new Date().getFullYear()} ყველა უფლება დაცულია.</p>
       </div>
+      </div>
+      
     </footer>
   );
 };
