@@ -18,7 +18,8 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
   return (
     <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-yellow-500/20 w-full">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <div className="logo flex items-center">
+        <div className="logo flex items-center" >
+          <img src="src/assets/NK-removebg-preview.png" alt="logo" width={200} height={200} />
           <Link to="/" className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600 tracking-wider">
           </Link>
         </div>
