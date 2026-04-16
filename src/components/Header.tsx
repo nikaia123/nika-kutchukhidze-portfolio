@@ -20,10 +20,9 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <div className="logo flex items-center">
           <Link to="/" className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600 tracking-wider">
-            MR. NIKA
           </Link>
         </div>
-        
+
         <nav className="hidden md:flex gap-8">
           {links.map((link) => (
             <Link 
