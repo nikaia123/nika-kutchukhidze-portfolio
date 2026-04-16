@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
@@ -12,15 +13,9 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-6">
-            <a href="#facebook" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">
-              Facebook
-            </a>
-            <a href="#instagram" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">
-              Instagram
-            </a>
-            <a href="#linkedin" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">
-              LinkedIn
-            </a>
+            <a href="#facebook" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">Facebook</a>
+            <a href="#instagram" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">Instagram</a>
+            <a href="#linkedin" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">LinkedIn</a>
           </div>
 
           <div className="text-gray-400 text-sm font-light tracking-wider">
@@ -29,8 +24,14 @@ export const Footer: React.FC = () => {
 
         </div>
 
-        <div className="text-center text-gray-500 text-sm border-t border-white/5 pt-8 font-light tracking-wide">
+        <div className="flex flex-col md:flex-row justify-between items-center text-center text-gray-500 text-sm border-t border-white/5 pt-8 font-light tracking-wide gap-4">
           <p>&copy; {new Date().getFullYear()} ყველა უფლება დაცულია.</p>
+          
+          <div className="flex gap-4">
+            <Link to="/privacy" className="hover:text-yellow-500 transition-colors">Privacy Policy</Link>
+            <span>|</span>
+            <Link to="/terms" className="hover:text-yellow-500 transition-colors">Terms & Conditions</Link>
+          </div>
         </div>
         
       </div>

@@ -5,6 +5,8 @@ import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Projects } from './pages/Projects';
+import { Terms } from './pages/Terms';
+import { Privacy } from './pages/Privacy';
 
 function App() {
   return (
@@ -12,9 +14,11 @@ function App() {
       <MainLayout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/Contact' element={<Contact/>} />
-          <Route path='/About' element={<About/>} />
-          <Route path='/Projects' element={<Projects/>} />
+          <Route path='/Contact' element={<Contact />} />
+          <Route path='/About' element={<About />} />
+          <Route path='/Projects' element={<Projects />} />
+          <Route path='/Terms' element={<Terms />} />
+          <Route path='/Privacy' element={<Privacy />} />
         </Routes>
 
       </MainLayout>
