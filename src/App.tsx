@@ -7,6 +7,7 @@ import { Contact } from './pages/Contact';
 import { Projects } from './pages/Projects';
 import { Terms } from './pages/Terms';
 import { Privacy } from './pages/Privacy';
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
           <Route path='/Projects' element={<Projects />} />
           <Route path='/Terms' element={<Terms />} />
           <Route path='/Privacy' element={<Privacy />} />
+          <Route path='/ScrollToTop' element={<ScrollToTop/>} />
         </Routes>
-
+        
       </MainLayout>
     </BrowserRouter>
   );

@@ -34,16 +34,6 @@ export const Home: React.FC = () => {
         ctaText="ნახე ჩემი ნამუშევრები" 
       />
 
-      <Section id="about" title="ჩემ შესახებ">
-        <div className="bg-gray-800/20 backdrop-blur-md border border-white/5 p-8 md:p-12 rounded-2xl text-gray-300 leading-relaxed max-w-4xl mx-auto shadow-xl text-lg text-center font-light">
-          <p>
-            მივესალმები თანამედროვე ვებ-ტექნოლოგიებს და ვიზუალურ ესთეტიკას. ჩემი მიზანია შევქმნა ისეთი ინტერფეისები, 
-            რომლებიც არა მხოლოდ უშეცდომოდ მუშაობს, არამედ მომხმარებელს აძლევს პრემიუმ გამოცდილებას. ვაწყობ აპლიკაციებს 
-            React-ისა და TypeScript-ის გამოყენებით, და განსაკუთრებით მიყვარს Dark Mode დიზაინები.
-          </p>
-        </div>
-      </Section>
-
       <Section id="projects" title="ბოლო პროექტები">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {projects.map((project) => (
