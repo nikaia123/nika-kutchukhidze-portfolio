@@ -38,10 +38,16 @@ export const Footer: React.FC = () => {
 
           {/* Social links */}
           <div style={{ display: 'flex', gap: '3rem' }}>
-            {['Facebook', 'Instagram', 'LinkedIn'].map((social) => (
+            {[
+              { name: 'Facebook', url: '#facebook' },
+              { name: 'Instagram', url: '#instagram' },
+              { name: 'GitHub', url: 'https://github.com/nikaia123/nika-kutchukhidze-portfolio' }
+            ].map((social) => (
               <a
-                key={social}
-                href={`#${social.toLowerCase()}`}
+                key={social.name}
+                href={social.url}
+                target={social.name === 'GitHub' ? '_blank' : undefined}
+                rel={social.name === 'GitHub' ? 'noreferrer' : undefined}
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontWeight: 300,
@@ -55,7 +61,7 @@ export const Footer: React.FC = () => {
                 onMouseEnter={e => (e.target as HTMLElement).style.color = '#D4A843'}
                 onMouseLeave={e => (e.target as HTMLElement).style.color = '#444'}
               >
-                {social}
+                {social.name}
               </a>
             ))}
           </div>
