@@ -28,7 +28,7 @@ export const Home: React.FC = () => {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8' }}>
+    <div className="min-h-screen bg-primary text-text-main">
       
       <Hero
         title="ნიკოლოზ კუჭუხიძე"
@@ -37,15 +37,10 @@ export const Home: React.FC = () => {
       />
 
       {/* Divider */}
-      <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.1), transparent)' }} />
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
 
       <Section id="projects" title="ბოლო პროექტები">
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '2rem',
-          justifyItems: 'center',
-        }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
           {projects.map((project) => (
             <Card
               key={project.title}

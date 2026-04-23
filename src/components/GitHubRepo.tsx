@@ -30,53 +30,37 @@ export const GitHubRepo: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div style={{ color: '#D4A843', textAlign: 'center', padding: '2rem', fontFamily: "'DM Sans', sans-serif" }}>იტვირთება...</div>;
+    return <div className="text-accent text-center p-8 font-sans">იტვირთება...</div>;
   }
 
   if (error) {
-    return <div style={{ color: '#ff4444', textAlign: 'center', padding: '2rem', fontFamily: "'DM Sans', sans-serif" }}>{error}</div>;
+    return <div className="text-red-500 text-center p-8 font-sans">{error}</div>;
   }
 
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-      gap: '2.5rem',
-      justifyItems: 'center',
-      marginTop: '3rem'
-    }}>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center mt-12 w-full">
       {items.map(repo => (
         <a 
           key={repo.id} 
           href={repo.html_url} 
           target="_blank" 
           rel="noreferrer"
-          style={{ textDecoration: 'none', width: '100%', display: 'block' }}
+          className="w-full block no-underline group"
         >
-          <div style={{
-            background: '#0d0d0d',
-            border: '1px solid rgba(255,255,255,0.04)',
-            padding: '2rem',
-            height: '100%',
-            transition: 'all 0.3s ease',
-            position: 'relative',
-          }}
-          onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(212,168,67,0.3)'}
-          onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.04)'}
-          >
+          <div className="bg-secondary border border-white/5 p-8 h-full transition-all duration-300 relative group-hover:border-accent/30 group-hover:-translate-y-1">
             {/* Corner ornaments */}
-            <div style={{ position: 'absolute', top: '-1px', left: '-1px', width: '10px', height: '10px', borderTop: '1px solid rgba(212,168,67,0.4)', borderLeft: '1px solid rgba(212,168,67,0.4)' }} />
-            <div style={{ position: 'absolute', top: '-1px', right: '-1px', width: '10px', height: '10px', borderTop: '1px solid rgba(212,168,67,0.4)', borderRight: '1px solid rgba(212,168,67,0.4)' }} />
-            <div style={{ position: 'absolute', bottom: '-1px', left: '-1px', width: '10px', height: '10px', borderBottom: '1px solid rgba(212,168,67,0.4)', borderLeft: '1px solid rgba(212,168,67,0.4)' }} />
-            <div style={{ position: 'absolute', bottom: '-1px', right: '-1px', width: '10px', height: '10px', borderBottom: '1px solid rgba(212,168,67,0.4)', borderRight: '1px solid rgba(212,168,67,0.4)' }} />
+            <div className="absolute top-[-1px] left-[-1px] w-[10px] h-[10px] border-t border-l border-accent/40" />
+            <div className="absolute top-[-1px] right-[-1px] w-[10px] h-[10px] border-t border-r border-accent/40" />
+            <div className="absolute bottom-[-1px] left-[-1px] w-[10px] h-[10px] border-b border-l border-accent/40" />
+            <div className="absolute bottom-[-1px] right-[-1px] w-[10px] h-[10px] border-b border-r border-accent/40" />
 
-            <h3 style={{ color: '#c8c8c8', marginBottom: '1rem', fontFamily: "'DM Sans', sans-serif", fontSize: '1.2rem', fontWeight: 400 }}>{repo.name}</h3>
-            <p style={{ color: '#888', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.6 }}>
+            <h3 className="text-text-main mb-4 font-sans text-xl font-normal group-hover:text-accent transition-colors duration-300">{repo.name}</h3>
+            <p className="text-text-muted text-sm mb-6 leading-relaxed">
               {repo.description || 'No description available.'}
             </p>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ color: '#D4A843', fontSize: '0.8rem', letterSpacing: '0.1em' }}>⭐ {repo.stargazers_count}</span>
-              <span style={{ color: '#D4A843', fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>View Code</span>
+            <div className="flex justify-between items-center">
+              <span className="text-accent text-xs tracking-widest">⭐ {repo.stargazers_count}</span>
+              <span className="text-accent text-xs tracking-widest uppercase">View Code</span>
             </div>
           </div>
         </a>

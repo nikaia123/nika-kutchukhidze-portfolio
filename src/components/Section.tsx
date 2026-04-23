@@ -8,45 +8,30 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
   return (
-    <section
-      id={id}
-      style={{
-        padding: '7rem 2.5rem',
-        maxWidth: '1400px',
-        margin: '0 auto',
-      }}
-    >
+    <section id={id} className="py-28 px-10 max-w-[1400px] mx-auto w-full">
       {/* Section header */}
-      <div style={{ marginBottom: '5rem', textAlign: 'center' }}>
+      <div className="mb-20 text-center">
         
         {/* Ornament above */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
-          <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.4))' }} />
-          <div style={{ width: '4px', height: '4px', background: 'rgba(212,168,67,0.5)', transform: 'rotate(45deg)' }} />
-          <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, rgba(212,168,67,0.4), transparent)' }} />
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-[60px] h-[1px] bg-gradient-to-r from-transparent to-accent/40" />
+          <div className="w-[4px] h-[4px] bg-accent/50 rotate-45" />
+          <div className="w-[60px] h-[1px] bg-gradient-to-r from-accent/40 to-transparent" />
         </div>
 
-        <h2 style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontWeight: 300,
-          fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-          letterSpacing: '0.06em',
-          color: '#c8c8c8',
-          margin: '0 0 1.5rem 0',
-          lineHeight: '1.1',
-        }}>
+        <h2 className="font-serif font-light text-[clamp(2.2rem,4vw,3.5rem)] tracking-[0.06em] text-text-main m-0 mb-6 leading-[1.1]">
           {title}
         </h2>
 
         {/* Ornament below */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-          <div style={{ width: '30px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.3))' }} />
-          <div style={{ width: '50px', height: '1px', background: 'rgba(212,168,67,0.5)' }} />
-          <div style={{ width: '30px', height: '1px', background: 'linear-gradient(90deg, rgba(212,168,67,0.3), transparent)' }} />
+        <div className="flex items-center justify-center gap-2">
+          <div className="w-[30px] h-[1px] bg-gradient-to-r from-transparent to-accent/30" />
+          <div className="w-[50px] h-[1px] bg-accent/50" />
+          <div className="w-[30px] h-[1px] bg-gradient-to-r from-accent/30 to-transparent" />
         </div>
       </div>
 
-      <div style={{ width: '100%' }}>
+      <div className="w-full">
         {children}
       </div>
     </section>

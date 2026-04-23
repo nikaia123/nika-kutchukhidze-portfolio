@@ -7,7 +7,7 @@ export const NotFound: React.FC = () => {
   usePageTitle('404 Not Found');
 
   return (
-    <div style={{ minHeight: '80vh', background: '#080808', color: '#c8c8c8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="min-h-[80vh] bg-primary text-text-main flex items-center justify-center">
       <Section title="404">
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
           <h2 style={{ 

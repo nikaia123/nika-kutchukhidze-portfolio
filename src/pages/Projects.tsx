@@ -30,7 +30,7 @@ export const Projects: React.FC = () => {
   ];
 
   return (
-    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8', paddingTop: '5rem', paddingBottom: '5rem' }}>
+    <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="ყველა პროექტი">
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '2rem', flexWrap: 'wrap' }}>
           {['all', 'React', 'TypeScript', 'UI/UX'].map(f => (
@@ -55,12 +55,7 @@ export const Projects: React.FC = () => {
             </button>
           ))}
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '2.5rem',
-          justifyItems: 'center',
-        }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
           {projectsData.filter(p => filter === 'all' || p.tags.includes(filter)).map((project) => (
             <Card
               key={project.title}
