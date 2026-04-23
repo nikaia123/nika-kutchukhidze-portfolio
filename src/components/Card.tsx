@@ -21,6 +21,8 @@ export const Card: React.FC<CardProps> = ({ id, title, image, description, tags 
         <img
           src={image}
           alt={title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover grayscale-[30%] brightness-50 group-hover:grayscale-0 group-hover:brightness-75 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         />
       </div>
