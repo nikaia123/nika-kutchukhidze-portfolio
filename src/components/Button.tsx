@@ -1,26 +1,87 @@
-import type  { ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline';
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  variant = 'primary', 
-  className = '', 
-  children, 
-  ...props 
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'primary',
+  className = '',
+  children,
+  ...props
 }) => {
-  const baseStyles = "px-6 py-2.5 rounded-xl font-bold transition-all duration-300 backdrop-blur-md active:scale-95 flex justify-center items-center tracking-wide";
-  
-  const variants = {
-    primary: "bg-gradient-to-r from-yellow-500 to-amber-600 text-black hover:from-yellow-400 hover:to-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.4)] border border-yellow-300/50",
+  const base: React.CSSProperties = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: "'DM Sans', sans-serif",
+    fontWeight: 300,
+    fontSize: '0.72rem',
+    letterSpacing: '0.25em',
+    textTransform: 'uppercase' as const,
+    padding: '0.85rem 2.2rem',
+    borderRadius: '2px',
+    cursor: 'pointer',
+    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+    position: 'relative' as const,
+    overflow: 'hidden',
+    whiteSpace: 'nowrap' as const,
+  };
 
-    secondary: "bg-black/60 text-yellow-500 hover:bg-yellow-500/10 border border-yellow-500/30 hover:border-yellow-500/70",
-    outline: "bg-transparent border-2 border-yellow-600/50 text-yellow-500 hover:bg-yellow-600/10"
+  const styles: Record<string, React.CSSProperties> = {
+    primary: {
+      ...base,
+      background: 'linear-gradient(135deg, #D4A843 0%, #A67C2E 100%)',
+      color: '#080808',
+      border: 'none',
+      boxShadow: '0 0 30px rgba(212,168,67,0.2)',
+    },
+    secondary: {
+      ...base,
+      background: 'transparent',
+      color: '#D4A843',
+      border: '1px solid rgba(212,168,67,0.35)',
+    },
+    outline: {
+      ...base,
+      background: 'transparent',
+      color: '#888',
+      border: '1px solid rgba(255,255,255,0.1)',
+    },
   };
 
   return (
-    <button className={`${baseStyles} ${variants[variant]} ${className}`} {...props}>
+    <button
+      style={styles[variant]}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget;
+        if (variant === 'primary') {
+          el.style.boxShadow = '0 0 50px rgba(212,168,67,0.4)';
+          el.style.transform = 'translateY(-1px)';
+        } else if (variant === 'secondary') {
+          el.style.background = 'rgba(212,168,67,0.08)';
+          el.style.borderColor = 'rgba(212,168,67,0.6)';
+        } else {
+          el.style.borderColor = 'rgba(255,255,255,0.25)';
+          el.style.color = '#bbb';
+        }
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget;
+        if (variant === 'primary') {
+          el.style.boxShadow = '0 0 30px rgba(212,168,67,0.2)';
+          el.style.transform = 'translateY(0)';
+        } else if (variant === 'secondary') {
+          el.style.background = 'transparent';
+          el.style.borderColor = 'rgba(212,168,67,0.35)';
+        } else {
+          el.style.borderColor = 'rgba(255,255,255,0.1)';
+          el.style.color = '#888';
+        }
+      }}
+      className={className}
+      {...props}
+    >
       {children}
     </button>
   );

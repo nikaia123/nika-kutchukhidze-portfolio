@@ -2,8 +2,10 @@ import React from 'react';
 import { Hero } from '../components/Hero';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
+import { usePageTitle } from '../hooks/usePageTitle';
 
 export const Home: React.FC = () => {
+  usePageTitle('Home');
   const projects = [
     {
       title: "The Apex Modular",
@@ -26,18 +28,26 @@ export const Home: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0c] text-white selection:bg-indigo-500/30">
+    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8' }}>
       
-      <Hero 
-        title="ნიკოლოზ კუჭუხიძე" 
-        slogan="Frontend Web Developer | React & TypeScript" 
-        ctaText="ნახე ჩემი ნამუშევრები" 
+      <Hero
+        title="ნიკოლოზ კუჭუხიძე"
+        slogan="Frontend Web Developer | React & TypeScript"
+        ctaText="ნახე ჩემი ნამუშევრები"
       />
 
+      {/* Divider */}
+      <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.1), transparent)' }} />
+
       <Section id="projects" title="ბოლო პროექტები">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+          gap: '2rem',
+          justifyItems: 'center',
+        }}>
           {projects.map((project) => (
-            <Card 
+            <Card
               key={project.title}
               title={project.title}
               image={project.image}
@@ -47,7 +57,7 @@ export const Home: React.FC = () => {
           ))}
         </div>
       </Section>
-      
+
     </div>
   );
 };
