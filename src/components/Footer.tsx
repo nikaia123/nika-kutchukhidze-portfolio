@@ -3,37 +3,121 @@ import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black border-t border-yellow-500/20 pt-12 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer style={{
+      background: '#080808',
+      borderTop: '1px solid rgba(212,168,67,0.1)',
+      padding: '4rem 2.5rem 3rem',
+    }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+        {/* Main footer row */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2.5rem',
+          marginBottom: '3rem',
+        }}>
           
-          <div className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-600 tracking-wider">
+          {/* Brand */}
+          <div style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 600,
+            fontSize: '1.6rem',
+            letterSpacing: '0.25em',
+            background: 'linear-gradient(135deg, #F5D98B, #D4A843, #A67C2E)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}>
             MR. NIKA
           </div>
 
-          <div className="flex gap-6">
-            <a href="#facebook" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">Facebook</a>
-            <a href="#instagram" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">Instagram</a>
-            <a href="#linkedin" className="text-gray-400 hover:text-yellow-500 font-medium tracking-wide transition-colors duration-300">LinkedIn</a>
+          {/* Thin gold line */}
+          <div style={{ width: '80px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.5), transparent)' }} />
+
+          {/* Social links */}
+          <div style={{ display: 'flex', gap: '3rem' }}>
+            {['Facebook', 'Instagram', 'LinkedIn'].map((social) => (
+              <a
+                key={social}
+                href={`#${social.toLowerCase()}`}
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 300,
+                  fontSize: '0.7rem',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: '#444',
+                  textDecoration: 'none',
+                  transition: 'color 0.3s ease',
+                }}
+                onMouseEnter={e => (e.target as HTMLElement).style.color = '#D4A843'}
+                onMouseLeave={e => (e.target as HTMLElement).style.color = '#444'}
+              >
+                {social}
+              </a>
+            ))}
           </div>
 
-          <div className="text-gray-400 text-sm font-light tracking-wider">
-            <p>კონტაქტი: info@example.com</p>
-          </div>
-
+          {/* Contact */}
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 200,
+            fontSize: '0.75rem',
+            letterSpacing: '0.15em',
+            color: '#333',
+          }}>
+            info@example.com
+          </p>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-center text-gray-500 text-sm border-t border-white/5 pt-8 font-light tracking-wide gap-4">
-          <p>&copy; {new Date().getFullYear()} ყველა უფლება დაცულია.</p>
-          
-          <div className="flex gap-4">
-            <Link to="/privacy" className="hover:text-yellow-500 transition-colors">Privacy Policy</Link>
-            <span>|</span>
-            <Link to="/terms" className="hover:text-yellow-500 transition-colors">Terms & Conditions</Link>
+        {/* Bottom bar */}
+        <div style={{
+          borderTop: '1px solid rgba(255,255,255,0.04)',
+          paddingTop: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1rem',
+          textAlign: 'center',
+        }}>
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 200,
+            fontSize: '0.65rem',
+            letterSpacing: '0.2em',
+            color: '#2a2a2a',
+            textTransform: 'uppercase',
+          }}>
+            &copy; {new Date().getFullYear()} — ყველა უფლება დაცულია
+          </p>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+            {[{ label: 'Privacy Policy', path: '/privacy' }, { label: 'Terms & Conditions', path: '/terms' }].map((item, i) => (
+              <React.Fragment key={item.path}>
+                {i > 0 && <span style={{ color: '#1a1a1a', fontSize: '0.6rem' }}>·</span>}
+                <Link
+                  to={item.path}
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontWeight: 300,
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.15em',
+                    textTransform: 'uppercase',
+                    color: '#2a2a2a',
+                    textDecoration: 'none',
+                    transition: 'color 0.3s ease',
+                  }}
+                  onMouseEnter={e => (e.target as HTMLElement).style.color = '#D4A843'}
+                  onMouseLeave={e => (e.target as HTMLElement).style.color = '#2a2a2a'}
+                >
+                  {item.label}
+                </Link>
+              </React.Fragment>
+            ))}
           </div>
         </div>
-        
+
       </div>
     </footer>
   );

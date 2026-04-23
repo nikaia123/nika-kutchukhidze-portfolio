@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { Header, type NavLink } from './Header';
 import { Footer } from './Footer';
 import  type { ReactNode } from 'react';

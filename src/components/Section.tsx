@@ -8,15 +8,45 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
   return (
-    <section id={id} className="py-24 px-4 md:px-8 max-w-7xl mx-auto bg-black">
-      <div className="mb-20 text-center">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 inline-block relative tracking-wide">
+    <section
+      id={id}
+      style={{
+        padding: '7rem 2.5rem',
+        maxWidth: '1400px',
+        margin: '0 auto',
+      }}
+    >
+      {/* Section header */}
+      <div style={{ marginBottom: '5rem', textAlign: 'center' }}>
+        
+        {/* Ornament above */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.4))' }} />
+          <div style={{ width: '4px', height: '4px', background: 'rgba(212,168,67,0.5)', transform: 'rotate(45deg)' }} />
+          <div style={{ width: '60px', height: '1px', background: 'linear-gradient(90deg, rgba(212,168,67,0.4), transparent)' }} />
+        </div>
+
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontWeight: 300,
+          fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
+          letterSpacing: '0.06em',
+          color: '#c8c8c8',
+          margin: '0 0 1.5rem 0',
+          lineHeight: '1.1',
+        }}>
           {title}
-          <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent rounded-full shadow-[0_0_15px_rgba(234,179,8,0.8)]" />
         </h2>
+
+        {/* Ornament below */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          <div style={{ width: '30px', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.3))' }} />
+          <div style={{ width: '50px', height: '1px', background: 'rgba(212,168,67,0.5)' }} />
+          <div style={{ width: '30px', height: '1px', background: 'linear-gradient(90deg, rgba(212,168,67,0.3), transparent)' }} />
+        </div>
       </div>
-      
-      <div className="w-full">
+
+      <div style={{ width: '100%' }}>
         {children}
       </div>
     </section>

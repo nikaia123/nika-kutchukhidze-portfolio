@@ -6,7 +6,19 @@ interface BadgeProps {
 
 export const Badge: React.FC<BadgeProps> = ({ label }) => {
   return (
-    <span className="px-3 py-1 text-xs font-bold tracking-widest text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 rounded-full backdrop-blur-sm uppercase shadow-inner">
+    <span style={{
+      display: 'inline-block',
+      padding: '3px 10px',
+      fontSize: '0.6rem',
+      fontFamily: "'DM Sans', sans-serif",
+      fontWeight: 400,
+      letterSpacing: '0.2em',
+      textTransform: 'uppercase',
+      color: '#A67C2E',
+      background: 'rgba(212,168,67,0.07)',
+      border: '1px solid rgba(212,168,67,0.18)',
+      borderRadius: '1px',
+    }}>
       {label}
     </span>
   );

@@ -3,32 +3,127 @@ import { Section } from '../components/Section';
 
 export const About: React.FC = () => {
   return (
-    <div className="min-h-screen bg-black text-white pt-24 pb-12">
+    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8', paddingTop: '5rem', paddingBottom: '5rem' }}>
       <Section title="ჩემ შესახებ">
-        <div className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
-          
-          <div className="w-full md:w-1/3 flex justify-center">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.2)]">
-              <img 
-                src="src/assets/user.avif" 
-                alt="Profile" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '4rem',
+          maxWidth: '1000px',
+          margin: '0 auto',
+        }}
+          className="md:flex-row"
+        >
+
+          {/* Photo */}
+          <div style={{ flexShrink: 0 }}>
+            <div style={{
+              width: '260px',
+              height: '320px',
+              position: 'relative',
+            }}>
+              {/* Corner ornaments */}
+              <div style={{ position: 'absolute', top: '-8px', left: '-8px', width: '24px', height: '24px', borderTop: '1px solid rgba(212,168,67,0.5)', borderLeft: '1px solid rgba(212,168,67,0.5)' }} />
+              <div style={{ position: 'absolute', top: '-8px', right: '-8px', width: '24px', height: '24px', borderTop: '1px solid rgba(212,168,67,0.5)', borderRight: '1px solid rgba(212,168,67,0.5)' }} />
+              <div style={{ position: 'absolute', bottom: '-8px', left: '-8px', width: '24px', height: '24px', borderBottom: '1px solid rgba(212,168,67,0.5)', borderLeft: '1px solid rgba(212,168,67,0.5)' }} />
+              <div style={{ position: 'absolute', bottom: '-8px', right: '-8px', width: '24px', height: '24px', borderBottom: '1px solid rgba(212,168,67,0.5)', borderRight: '1px solid rgba(212,168,67,0.5)' }} />
+
+              <img
+                src="src/assets/user.avif"
+                alt="Profile"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  filter: 'grayscale(20%) brightness(0.8)',
+                  border: '1px solid rgba(212,168,67,0.12)',
+                }}
+                onMouseEnter={e => (e.target as HTMLElement).style.filter = 'grayscale(0%) brightness(0.9)'}
+                onMouseLeave={e => (e.target as HTMLElement).style.filter = 'grayscale(20%) brightness(0.8)'}
               />
             </div>
           </div>
 
-          <div className="w-full md:w-2/3 space-y-6 text-gray-300 text-lg leading-relaxed font-light bg-zinc-900/40 p-8 rounded-3xl border border-white/5">
-            <p>
-              გამარჯობა, მე ვარ <strong className="text-yellow-500 font-bold">ნიკოლოზ კუჭუხიძე</strong>, Frontend Web Developer. 
-              მივესალმები თანამედროვე ვებ-ტექნოლოგიებს და ვიზუალურ ესთეტიკას. ჩემი მიზანია შევქმნა ისეთი ინტერფეისები, 
-              რომლებიც არა მხოლოდ უშეცდომოდ მუშაობს, არამედ მომხმარებელს აძლევს პრემიუმ გამოცდილებას.
-            </p>
-            <p>
-              ძირითადად ვმუშაობ <span className="text-yellow-400 font-medium">React</span>, <span className="text-yellow-400 font-medium">TypeScript</span> და <span className="text-yellow-400 font-medium">Tailwind CSS</span> ტექნოლოგიებით. 
-              განსაკუთრებით მიტაცებს Premium Dark Mode და Glassmorphism დიზაინების აწყობა, რაც პროექტებს სოლიდურ და პროფესიონალურ იერსახეს სძენს.
-            </p>
-          </div>
+          {/* Text */}
+          <div style={{
+            flexGrow: 1,
+            background: 'rgba(13,13,13,0.8)',
+            border: '1px solid rgba(255,255,255,0.04)',
+            padding: '3rem',
+            position: 'relative',
+          }}>
+            {/* Top gold accent */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: '3rem',
+              right: '3rem',
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent)',
+            }} />
 
+            <p style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 300,
+              fontSize: '1.1rem',
+              lineHeight: '2',
+              color: '#888',
+              marginBottom: '1.5rem',
+            }}>
+              გამარჯობა, მე ვარ{' '}
+              <strong style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                color: '#D4A843',
+              }}>
+                ნიკოლოზ კუჭუხიძე
+              </strong>
+              , Frontend Web Developer. მივესალმები თანამედროვე ვებ-ტექნოლოგიებს და ვიზუალურ ესთეტიკას.
+            </p>
+
+            <p style={{
+              fontFamily: "'Cormorant Garamond', serif",
+              fontWeight: 300,
+              fontSize: '1.1rem',
+              lineHeight: '2',
+              color: '#666',
+              marginBottom: '2rem',
+            }}>
+              ძირითადად ვმუშაობ{' '}
+              <span style={{ color: '#A67C2E' }}>React</span>,{' '}
+              <span style={{ color: '#A67C2E' }}>TypeScript</span> და{' '}
+              <span style={{ color: '#A67C2E' }}>Tailwind CSS</span> ტექნოლოგიებით.
+            </p>
+
+            {/* Skills row */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.04)', paddingTop: '1.5rem' }}>
+              {['React', 'TypeScript', 'Tailwind CSS', 'UI/UX'].map(skill => (
+                <span key={skill} style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontWeight: 200,
+                  fontSize: '0.65rem',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: '#555',
+                  borderBottom: '1px solid rgba(212,168,67,0.25)',
+                  paddingBottom: '2px',
+                }}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            {/* Bottom gold accent */}
+            <div style={{
+              position: 'absolute',
+              bottom: 0,
+              left: '3rem',
+              right: '3rem',
+              height: '1px',
+              background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent)',
+            }} />
+          </div>
         </div>
       </Section>
     </div>

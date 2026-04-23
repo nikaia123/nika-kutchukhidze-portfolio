@@ -9,20 +9,123 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
   return (
-    <section className="relative flex flex-col items-center justify-center min-h-[85vh] text-center px-4 overflow-hidden bg-black">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-yellow-600/15 blur-[150px] rounded-full z-0 pointer-events-none" />
-    
-      <div className="relative z-10 flex flex-col items-center max-w-4xl p-8 rounded-3xl">
-        <h1 className="text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-yellow-200 via-yellow-500 to-amber-700 mb-6 drop-shadow-2xl tracking-tighter">
+    <section style={{
+      position: 'relative',
+      minHeight: '92vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      padding: '0 2rem',
+      overflow: 'hidden',
+      background: '#080808',
+    }}>
+
+      {/* Radial gold glow */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '700px',
+        height: '700px',
+        background: 'radial-gradient(ellipse at center, rgba(212,168,67,0.06) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* Top thin gold line */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '1px',
+        height: '80px',
+        background: 'linear-gradient(to bottom, transparent, rgba(212,168,67,0.4))',
+      }} />
+
+      {/* Content */}
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: '900px' }} className="animate-fade-up">
+
+        {/* Eyebrow label */}
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '12px',
+          marginBottom: '2.5rem',
+        }} className="animate-fade-up">
+          <div style={{ width: '30px', height: '1px', background: 'rgba(212,168,67,0.5)' }} />
+          <span style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 300,
+            fontSize: '0.7rem',
+            letterSpacing: '0.35em',
+            textTransform: 'uppercase',
+            color: '#A67C2E',
+          }}>Portfolio</span>
+          <div style={{ width: '30px', height: '1px', background: 'rgba(212,168,67,0.5)' }} />
+        </div>
+
+        {/* Name - editorial display */}
+        <h1
+          className="animate-fade-up-delay-1"
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 300,
+            fontSize: 'clamp(3.5rem, 9vw, 8rem)',
+            lineHeight: '1',
+            letterSpacing: '-0.02em',
+            marginBottom: '1.5rem',
+            background: 'linear-gradient(160deg, #F5D98B 0%, #D4A843 40%, #8a6020 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
           {title}
         </h1>
-        <p className="text-xl md:text-2xl text-gray-400 mb-12 font-light tracking-widest max-w-2xl uppercase">
+
+        {/* Slogan */}
+        <p
+          className="animate-fade-up-delay-2"
+          style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 200,
+            fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
+            letterSpacing: '0.35em',
+            textTransform: 'uppercase',
+            color: '#4a4a4a',
+            marginBottom: '3.5rem',
+          }}
+        >
           {slogan}
         </p>
-        <Button variant="primary" className="text-lg px-10 py-4 rounded-full shadow-yellow-500/30">
-          {ctaText}
-        </Button>
+
+        {/* CTA */}
+        <div className="animate-fade-up-delay-3">
+          <Button variant="primary">
+            {ctaText}
+          </Button>
+        </div>
       </div>
+
+      {/* Bottom vertical line */}
+      <div style={{
+        position: 'absolute',
+        bottom: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '1px',
+        height: '80px',
+        background: 'linear-gradient(to top, transparent, rgba(212,168,67,0.4))',
+      }} />
+
+      {/* Corner ornaments */}
+      <div style={{ position: 'absolute', top: '2rem', left: '2rem', width: '30px', height: '30px', borderTop: '1px solid rgba(212,168,67,0.2)', borderLeft: '1px solid rgba(212,168,67,0.2)' }} />
+      <div style={{ position: 'absolute', top: '2rem', right: '2rem', width: '30px', height: '30px', borderTop: '1px solid rgba(212,168,67,0.2)', borderRight: '1px solid rgba(212,168,67,0.2)' }} />
+      <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', width: '30px', height: '30px', borderBottom: '1px solid rgba(212,168,67,0.2)', borderLeft: '1px solid rgba(212,168,67,0.2)' }} />
+      <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', width: '30px', height: '30px', borderBottom: '1px solid rgba(212,168,67,0.2)', borderRight: '1px solid rgba(212,168,67,0.2)' }} />
     </section>
   );
 };
