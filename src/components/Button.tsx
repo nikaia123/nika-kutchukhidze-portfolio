@@ -10,76 +10,17 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const base: React.CSSProperties = {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: "'DM Sans', sans-serif",
-    fontWeight: 300,
-    fontSize: '0.72rem',
-    letterSpacing: '0.25em',
-    textTransform: 'uppercase' as const,
-    padding: '0.85rem 2.2rem',
-    borderRadius: '2px',
-    cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-    position: 'relative' as const,
-    overflow: 'hidden',
-    whiteSpace: 'nowrap' as const,
-  };
+  const baseClasses = "inline-flex items-center justify-center font-['DM_Sans'] font-light text-[0.72rem] tracking-[0.25em] uppercase px-[2.2rem] py-[0.85rem] rounded-[2px] cursor-pointer transition-all duration-300 whitespace-nowrap hover:scale-95";
 
-  const styles: Record<string, React.CSSProperties> = {
-    primary: {
-      ...base,
-      background: 'linear-gradient(135deg, #D4A843 0%, #A67C2E 100%)',
-      color: '#080808',
-      border: 'none',
-      boxShadow: '0 0 30px rgba(212,168,67,0.2)',
-    },
-    secondary: {
-      ...base,
-      background: 'transparent',
-      color: '#D4A843',
-      border: '1px solid rgba(212,168,67,0.35)',
-    },
-    outline: {
-      ...base,
-      background: 'transparent',
-      color: '#888',
-      border: '1px solid rgba(255,255,255,0.1)',
-    },
+  const variantClasses = {
+    primary: "bg-[#D4A843] text-[#080808] border-none hover:bg-[#b08b35] shadow-[0_0_15px_rgba(212,168,67,0.2)]",
+    secondary: "bg-transparent text-[#D4A843] border border-[#D4A843] hover:bg-[#D4A843] hover:text-[#080808]",
+    outline: "bg-transparent text-[#888] border border-white/10 hover:border-[#D4A843] hover:text-[#D4A843]"
   };
 
   return (
     <button
-      style={styles[variant]}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget;
-        if (variant === 'primary') {
-          el.style.boxShadow = '0 0 50px rgba(212,168,67,0.4)';
-          el.style.transform = 'translateY(-1px)';
-        } else if (variant === 'secondary') {
-          el.style.background = 'rgba(212,168,67,0.08)';
-          el.style.borderColor = 'rgba(212,168,67,0.6)';
-        } else {
-          el.style.borderColor = 'rgba(255,255,255,0.25)';
-          el.style.color = '#bbb';
-        }
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget;
-        if (variant === 'primary') {
-          el.style.boxShadow = '0 0 30px rgba(212,168,67,0.2)';
-          el.style.transform = 'translateY(0)';
-        } else if (variant === 'secondary') {
-          el.style.background = 'transparent';
-          el.style.borderColor = 'rgba(212,168,67,0.35)';
-        } else {
-          el.style.borderColor = 'rgba(255,255,255,0.1)';
-          el.style.color = '#888';
-        }
-      }}
-      className={className}
+      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
       {...props}
     >
       {children}

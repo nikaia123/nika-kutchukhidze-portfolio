@@ -26,7 +26,7 @@ const sections = [
 
 export const Privacy: React.FC = () => {
   return (
-    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8', paddingTop: '5rem', paddingBottom: '5rem' }}>
+    <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="კონფიდენციალურობა">
         <div style={{ maxWidth: '780px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '0' }}>
           {sections.map((s, i) => (

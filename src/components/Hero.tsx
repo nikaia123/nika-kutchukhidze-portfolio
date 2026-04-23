@@ -9,96 +9,33 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
   return (
-    <section style={{
-      position: 'relative',
-      minHeight: '92vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      padding: '0 2rem',
-      overflow: 'hidden',
-      background: '#080808',
-    }}>
+    <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-8 overflow-hidden bg-primary">
 
       {/* Radial gold glow */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '700px',
-        height: '700px',
-        background: 'radial-gradient(ellipse at center, rgba(212,168,67,0.06) 0%, transparent 70%)',
-        pointerEvents: 'none',
-      }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[radial-gradient(ellipse_at_center,rgba(212,168,67,0.06)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Top thin gold line */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '1px',
-        height: '80px',
-        background: 'linear-gradient(to bottom, transparent, rgba(212,168,67,0.4))',
-      }} />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-[80px] bg-gradient-to-b from-transparent to-accent/40" />
 
       {/* Content */}
-      <div style={{ position: 'relative', zIndex: 2, maxWidth: '900px' }} className="animate-fade-up">
+      <div className="relative z-10 max-w-[900px] animate-fade-up">
 
         {/* Eyebrow label */}
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '12px',
-          marginBottom: '2.5rem',
-        }} className="animate-fade-up">
-          <div style={{ width: '30px', height: '1px', background: 'rgba(212,168,67,0.5)' }} />
-          <span style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontWeight: 300,
-            fontSize: '0.7rem',
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: '#A67C2E',
-          }}>Portfolio</span>
-          <div style={{ width: '30px', height: '1px', background: 'rgba(212,168,67,0.5)' }} />
+        <div className="inline-flex items-center gap-3 mb-10 animate-fade-up">
+          <div className="w-[30px] h-[1px] bg-accent/50" />
+          <span className="font-sans font-light text-[0.7rem] tracking-[0.35em] uppercase text-[#A67C2E]">
+            Portfolio
+          </span>
+          <div className="w-[30px] h-[1px] bg-accent/50" />
         </div>
 
         {/* Name - editorial display */}
-        <h1
-          className="animate-fade-up-delay-1"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontWeight: 300,
-            fontSize: 'clamp(3.5rem, 9vw, 8rem)',
-            lineHeight: '1',
-            letterSpacing: '-0.02em',
-            marginBottom: '1.5rem',
-            background: 'linear-gradient(160deg, #F5D98B 0%, #D4A843 40%, #8a6020 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
+        <h1 className="animate-fade-up-delay-1 font-serif font-light text-[clamp(3.5rem,9vw,8rem)] leading-none tracking-[-0.02em] mb-6 bg-gradient-to-br from-accent-hover via-accent to-[#8a6020] text-transparent bg-clip-text">
           {title}
         </h1>
 
         {/* Slogan */}
-        <p
-          className="animate-fade-up-delay-2"
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontWeight: 200,
-            fontSize: 'clamp(0.75rem, 1.5vw, 0.9rem)',
-            letterSpacing: '0.35em',
-            textTransform: 'uppercase',
-            color: '#4a4a4a',
-            marginBottom: '3.5rem',
-          }}
-        >
+        <p className="animate-fade-up-delay-2 font-sans font-extralight text-[clamp(0.75rem,1.5vw,0.9rem)] tracking-[0.35em] uppercase text-[#4a4a4a] mb-14">
           {slogan}
         </p>
 
@@ -111,21 +48,13 @@ export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
       </div>
 
       {/* Bottom vertical line */}
-      <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: '1px',
-        height: '80px',
-        background: 'linear-gradient(to top, transparent, rgba(212,168,67,0.4))',
-      }} />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-[80px] bg-gradient-to-t from-transparent to-accent/40" />
 
       {/* Corner ornaments */}
-      <div style={{ position: 'absolute', top: '2rem', left: '2rem', width: '30px', height: '30px', borderTop: '1px solid rgba(212,168,67,0.2)', borderLeft: '1px solid rgba(212,168,67,0.2)' }} />
-      <div style={{ position: 'absolute', top: '2rem', right: '2rem', width: '30px', height: '30px', borderTop: '1px solid rgba(212,168,67,0.2)', borderRight: '1px solid rgba(212,168,67,0.2)' }} />
-      <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', width: '30px', height: '30px', borderBottom: '1px solid rgba(212,168,67,0.2)', borderLeft: '1px solid rgba(212,168,67,0.2)' }} />
-      <div style={{ position: 'absolute', bottom: '2rem', right: '2rem', width: '30px', height: '30px', borderBottom: '1px solid rgba(212,168,67,0.2)', borderRight: '1px solid rgba(212,168,67,0.2)' }} />
+      <div className="absolute top-8 left-8 w-[30px] h-[30px] border-t border-l border-accent/20" />
+      <div className="absolute top-8 right-8 w-[30px] h-[30px] border-t border-r border-accent/20" />
+      <div className="absolute bottom-8 left-8 w-[30px] h-[30px] border-b border-l border-accent/20" />
+      <div className="absolute bottom-8 right-8 w-[30px] h-[30px] border-b border-r border-accent/20" />
     </section>
   );
 };

@@ -1,5 +1,9 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilites;
+@tailwind utilities;
 
- 
+@layer base {
+  body {
+    @apply bg-primary text-text-main font-sans antialiased;
+  }
+}

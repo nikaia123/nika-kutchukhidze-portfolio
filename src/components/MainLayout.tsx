@@ -16,7 +16,7 @@ const navigationLinks: NavLink[] = [
 
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="main-layout">
+    <div className="main-layout text-sm md:text-base">
       <Header links={navigationLinks} />
       
       <main>{children}</main>

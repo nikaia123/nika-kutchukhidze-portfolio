@@ -14,7 +14,7 @@ export const Contact: React.FC = () => {
   usePageTitle('Contact');
   const { form, handleChange } = useForm<ContactForm>({ name: '', email: '', message: '' });
   return (
-    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8', paddingTop: '5rem', paddingBottom: '5rem' }}>
+    <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="დამიკავშირდით">
         <div style={{
           maxWidth: '640px',

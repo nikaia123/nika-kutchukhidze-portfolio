@@ -3,7 +3,7 @@ import { Section } from '../components/Section';
 
 export const About: React.FC = () => {
   return (
-    <div style={{ minHeight: '100vh', background: '#080808', color: '#c8c8c8', paddingTop: '5rem', paddingBottom: '5rem' }}>
+    <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="ჩემ შესახებ">
         <div style={{
           display: 'flex',
