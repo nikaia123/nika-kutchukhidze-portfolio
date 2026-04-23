@@ -1,116 +1,113 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../components/Section';
 import { Button } from '../components/Button';
 import { usePageTitle } from '../hooks/usePageTitle';
-import { useForm } from '../hooks/useForm';
-
-interface ContactForm {
-  name: string;
-  email: string;
-  message: string;
-}
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 export const Contact: React.FC = () => {
   usePageTitle('Contact');
-  const { form, handleChange } = useForm<ContactForm>({ name: '', email: '', message: '' });
+
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const formik = useFormik({
+    initialValues: { name: '', email: '', message: '' },
+    validationSchema: Yup.object({
+      name: Yup.string().required("სახელი სავალდებულოა"),
+      email: Yup.string().email("არასწორი ელ. ფოსტა (მაგ. example@gmail.com)").required("ელ. ფოსტა სავალდებულოა"),
+      message: Yup.string().min(10, 'მინ. 10 სიმბოლო').required("შეტყობინება სავალდებულოა")
+    }),
+    onSubmit: (values, { resetForm }) => {
+      console.log(values);
+      setSuccessMessage("თქვენი შეტყობინება წარმატებით გაიგზავნა!!");
+      resetForm();
+      setTimeout(() => setSuccessMessage(null), 5000);
+    }
+  });
+
   return (
     <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="დამიკავშირდით">
-        <div style={{
-          maxWidth: '640px',
-          margin: '0 auto',
-          background: '#0d0d0d',
-          border: '1px solid rgba(255,255,255,0.04)',
-          padding: '3.5rem',
-          position: 'relative',
-        }}>
+        <div className="max-w-[640px] mx-auto bg-secondary border border-white/5 p-14 relative group">
           {/* Corner ornaments */}
-          <div style={{ position: 'absolute', top: '-1px', left: '-1px', width: '20px', height: '20px', borderTop: '1px solid rgba(212,168,67,0.4)', borderLeft: '1px solid rgba(212,168,67,0.4)' }} />
-          <div style={{ position: 'absolute', top: '-1px', right: '-1px', width: '20px', height: '20px', borderTop: '1px solid rgba(212,168,67,0.4)', borderRight: '1px solid rgba(212,168,67,0.4)' }} />
-          <div style={{ position: 'absolute', bottom: '-1px', left: '-1px', width: '20px', height: '20px', borderBottom: '1px solid rgba(212,168,67,0.4)', borderLeft: '1px solid rgba(212,168,67,0.4)' }} />
-          <div style={{ position: 'absolute', bottom: '-1px', right: '-1px', width: '20px', height: '20px', borderBottom: '1px solid rgba(212,168,67,0.4)', borderRight: '1px solid rgba(212,168,67,0.4)' }} />
+          <div className="absolute top-[-1px] left-[-1px] w-[20px] h-[20px] border-t border-l border-accent/40" />
+          <div className="absolute top-[-1px] right-[-1px] w-[20px] h-[20px] border-t border-r border-accent/40" />
+          <div className="absolute bottom-[-1px] left-[-1px] w-[20px] h-[20px] border-b border-l border-accent/40" />
+          <div className="absolute bottom-[-1px] right-[-1px] w-[20px] h-[20px] border-b border-r border-accent/40" />
 
-          <form style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }} onSubmit={(e) => e.preventDefault()}>
-
-            {[
-              { id: 'name', label: 'სახელი', type: 'text', placeholder: 'თქვენი სახელი' },
-              { id: 'email', label: 'ელ. ფოსტა', type: 'email', placeholder: 'your@email.com' },
-            ].map((field) => (
-              <div key={field.id} style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                <label htmlFor={field.id} style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 300,
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  color: '#444',
-                }}>
-                  {field.label}
-                </label>
-                <input
-                  type={field.type}
-                  id={field.id}
-                  placeholder={field.placeholder}
-                  value={form[field.id as keyof ContactForm]}
-                  onChange={handleChange}
-                  style={{
-                    background: '#080808',
-                    border: '1px solid rgba(255,255,255,0.06)',
-                    borderRadius: '2px',
-                    padding: '0.9rem 1.2rem',
-                    color: '#c8c8c8',
-                    fontFamily: "'DM Sans', sans-serif",
-                    fontWeight: 300,
-                    fontSize: '0.9rem',
-                    outline: 'none',
-                    transition: 'border-color 0.3s ease',
-                    width: '100%',
-                  }}
-                  onFocus={e => e.target.style.borderColor = 'rgba(212,168,67,0.3)'}
-                  onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.06)'}
-                />
+          <form className="flex flex-col gap-8" onSubmit={formik.handleSubmit}>
+            {successMessage && (
+              <div className="bg-green-500/10 border border-green-500/30 text-green-400 p-4 rounded text-center font-sans font-light text-[0.9rem] animate-fade-up">
+                {successMessage}
               </div>
-            ))}
+            )}
+
+            <div className="flex flex-col gap-2.5">
+              <label htmlFor="name" className="font-sans font-light text-[0.65rem] tracking-[0.25em] uppercase text-[#444]">
+                სახელი
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="თქვენი სახელი"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                className={`bg-primary border rounded-[2px] py-3.5 px-5 text-text-main font-sans font-light text-[0.9rem] outline-none transition-colors duration-300 w-full ${
+                  formik.touched.name && formik.errors.name ? 'border-red-500' : 'border-white/5 focus:border-accent/30'
+                }`}
+              />
+              {formik.touched.name && formik.errors.name && (
+                <div className="text-red-500 text-xs font-sans mt-1">{formik.errors.name}</div>
+              )}
+            </div>
+
+            <div className="flex flex-col gap-2.5">
+              <label htmlFor="email" className="font-sans font-light text-[0.65rem] tracking-[0.25em] uppercase text-[#444]">
+                ელ. ფოსტა
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                className={`bg-primary border rounded-[2px] py-3.5 px-5 text-text-main font-sans font-light text-[0.9rem] outline-none transition-colors duration-300 w-full ${
+                  formik.touched.email && formik.errors.email ? 'border-red-500' : 'border-white/5 focus:border-accent/30'
+                }`}
+              />
+              {formik.touched.email && formik.errors.email && (
+                <div className="text-red-500 text-xs font-sans mt-1">{formik.errors.email}</div>
+              )}
+            </div>
 
             {/* Message */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              <label htmlFor="message" style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 300,
-                fontSize: '0.65rem',
-                letterSpacing: '0.25em',
-                textTransform: 'uppercase',
-                color: '#444',
-              }}>
+            <div className="flex flex-col gap-2.5">
+              <label htmlFor="message" className="font-sans font-light text-[0.65rem] tracking-[0.25em] uppercase text-[#444]">
                 შეტყობინება
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={5}
                 placeholder="მოკლედ აღწერეთ თქვენი იდეა..."
-                value={form.message}
-                onChange={handleChange}
-                style={{
-                  background: '#080808',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  borderRadius: '2px',
-                  padding: '0.9rem 1.2rem',
-                  color: '#c8c8c8',
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 300,
-                  fontSize: '0.9rem',
-                  outline: 'none',
-                  resize: 'none',
-                  transition: 'border-color 0.3s ease',
-                  width: '100%',
-                }}
-                onFocus={e => e.target.style.borderColor = 'rgba(212,168,67,0.3)'}
-                onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.06)'}
+                value={formik.values.message}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                className={`bg-primary border rounded-[2px] py-3.5 px-5 text-text-main font-sans font-light text-[0.9rem] outline-none resize-none transition-colors duration-300 w-full ${
+                  formik.touched.message && formik.errors.message ? 'border-red-500' : 'border-white/5 focus:border-accent/30'
+                }`}
               />
+              {formik.touched.message && formik.errors.message && (
+                <div className="text-red-500 text-xs font-sans mt-1">{formik.errors.message}</div>
+              )}
             </div>
 
-            <div style={{ paddingTop: '0.5rem' }}>
-              <Button variant="primary" type="submit" style={{ width: '100%', padding: '1rem' }}>
+            <div className="pt-2">
+              <Button variant="primary" type="submit" className="w-full py-4">
                 გაგზავნა
               </Button>
             </div>

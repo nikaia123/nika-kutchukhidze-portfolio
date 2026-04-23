@@ -29,8 +29,7 @@ export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
           <div className="w-[30px] h-[1px] bg-accent/50" />
         </div>
 
-        {/* Name - editorial display */}
-        <h1 className="animate-fade-up-delay-1 font-serif font-light text-[clamp(3.5rem,9vw,8rem)] leading-none tracking-[-0.02em] mb-6 bg-gradient-to-br from-accent-hover via-accent to-[#8a6020] text-transparent bg-clip-text">
+        <h1 className="animate-fade-up-delay-1 font-serif font-light text-[clamp(3.5rem,9vw,8rem)] leading-tight py-2 tracking-[-0.02em] mb-6 bg-gradient-to-br from-accent-hover via-accent to-[#8a6020] text-transparent bg-clip-text">
           {title}
         </h1>
 
@@ -41,7 +40,10 @@ export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
 
         {/* CTA */}
         <div className="animate-fade-up-delay-3">
-          <Button variant="primary">
+          <Button 
+            variant="primary" 
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             {ctaText}
           </Button>
         </div>

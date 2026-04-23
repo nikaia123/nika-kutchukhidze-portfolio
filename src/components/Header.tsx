@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useMobileMenu } from '../hooks/useMobileMenu';
+import logo from '../assets/NK-removebg-preview.png';
 
 export interface NavLink {
   label: string;
@@ -34,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
         
         {/* Logo */}
         <Link to="/" className="no-underline flex items-center gap-3">
-          <img src="src/assets/NK-removebg-preview.png" alt="logo" width={160} height={160} className="object-contain" />
+          <img src={logo} alt="logo" width={160} height={160} className="object-contain" />
         </Link>
 
         {/* Desktop Nav */}

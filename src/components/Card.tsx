@@ -1,15 +1,18 @@
 import React from 'react';
 import { Button } from './Button';
 import { Badge } from './Badge';
+import { Link } from 'react-router-dom';
 
 export interface CardProps {
+  id: string;
   title: string;
   image: string;
   description: string;
   tags?: string[];
+  link: string;
 }
 
-export const Card: React.FC<CardProps> = ({ title, image, description, tags = [] }) => {
+export const Card: React.FC<CardProps> = ({ id, title, image, description, tags = [], link }) => {
   return (
     <div className="flex flex-col bg-[#0d0d0d] border border-white/5 hover:border-[#D4A843]/25 rounded-[3px] overflow-hidden max-w-[380px] w-full hover:shadow-xl hover:shadow-[#D4A843]/10 hover:scale-105 transition-all duration-300 group cursor-pointer">
       {/* Image */}
@@ -47,8 +50,12 @@ export const Card: React.FC<CardProps> = ({ title, image, description, tags = []
 
         {/* Actions */}
         <div className="flex gap-3">
-          <Button variant="primary" className="flex-1">დეტალები</Button>
-          <Button variant="secondary">Link</Button>
+          <Link to={`/project/${id}`} className="flex-1 no-underline">
+            <Button variant="primary" className="w-full h-full text-center flex justify-center items-center">დეტალები</Button>
+          </Link>
+          <a href={link} target="_blank" rel="noreferrer" className="no-underline">
+            <Button variant="secondary" className="h-full flex justify-center items-center">Link</Button>
+          </a>
         </div>
       </div>
     </div>

@@ -8,6 +8,7 @@ import { Projects } from './pages/Projects';
 import { Terms } from './pages/Terms';
 import { Privacy } from './pages/Privacy';
 import { NotFound } from './pages/NotFound';
+import { ProjectDetails } from './pages/ProjectDetails';
 import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/project/:id" element={<ProjectDetails />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </MainLayout>

@@ -3,35 +3,16 @@ import { Hero } from '../components/Hero';
 import { Section } from '../components/Section';
 import { Card } from '../components/Card';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { projectsData } from '../data/projects';
 
 export const Home: React.FC = () => {
   usePageTitle('Home');
-  const projects = [
-    {
-      title: "The Apex Modular",
-      image: "src/assets/atuka.webp",
-      description: "ექსტრემალური სპორტის საათის პროტოტიპი მოდულური SOS სისტემით.",
-      tags: ["UI/UX", "Product Design", "React"]
-    },
-    {
-      title: "Mafia Game Web",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800&auto=format&fit=crop",
-      description: "მაფიის სათამაშო პლატფორმა 11 მოთამაშისთვის ავტომატური როლებით.",
-      tags: ["TypeScript", "React", "Tailwind CSS"]
-    },
-    {
-      title: "E-Commerce Store",
-      image: "https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=800&auto=format&fit=crop",
-      description: "ონლაინ მაღაზიის ინტერფეისი FakeStoreAPI-ის ინტეგრაციით.",
-      tags: ["React", "API", "Context API"]
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-primary text-text-main">
       
       <Hero
-        title="ნიკოლოზ კუჭუხიძე"
+        title="ნიკა კუჭუხიძე"
         slogan="Frontend Web Developer | React & TypeScript"
         ctaText="ნახე ჩემი ნამუშევრები"
       />
@@ -41,13 +22,15 @@ export const Home: React.FC = () => {
 
       <Section id="projects" title="ბოლო პროექტები">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
-          {projects.map((project) => (
+          {projectsData.map((project) => (
             <Card
-              key={project.title}
+              key={project.id}
+              id={project.id}
               title={project.title}
               image={project.image}
               description={project.description}
               tags={project.tags}
+              link={project.link}
             />
           ))}
         </div>
