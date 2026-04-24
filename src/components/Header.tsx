@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useMobileMenu } from '../hooks/useMobileMenu';
-import logo from '../assets/NK-removebg-preview.png';
+import logo from '../assets/NK-removebg-preview.webp';
 
 export interface NavLink {
   label: string;
@@ -25,17 +25,16 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-        scrolled 
-          ? 'bg-primary/95 backdrop-blur-[20px] border-b border-accent/10' 
+      className={`sticky top-0 z-50 w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${scrolled
+          ? 'bg-primary/95 backdrop-blur-[20px] border-b border-accent/10'
           : 'bg-transparent border-b border-transparent'
-      }`}
+        }`}
     >
       <div className="max-w-[1400px] mx-auto px-10 h-20 flex items-center justify-between">
-        
+
         {/* Logo */}
         <Link to="/" className="no-underline flex items-center gap-3">
-          <img src={logo} alt="logo" width={160} height={160} className="object-contain" />
+          <img src={logo} alt="logo" width={160} height={160} className="object-contain" fetchPriority="high" decoding="sync" />
         </Link>
 
         {/* Desktop Nav */}
@@ -46,11 +45,10 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-sans font-light text-[0.78rem] tracking-[0.2em] uppercase relative pb-1 transition-all duration-300 no-underline ${
-                  isActive 
-                    ? 'text-accent' 
+                className={`font-sans font-light text-[0.78rem] tracking-[0.2em] uppercase relative pb-1 transition-all duration-300 no-underline ${isActive
+                    ? 'text-accent'
                     : 'text-text-muted hover:text-accent hover:underline underline-offset-[6px] decoration-accent'
-                }`}
+                  }`}
               >
                 {link.label}
                 {isActive && (
@@ -78,9 +76,8 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
               key={link.path}
               to={link.path}
               onClick={toggleMenu}
-              className={`no-underline font-sans font-light text-[0.85rem] tracking-[0.2em] uppercase ${
-                location.pathname === link.path ? 'text-accent' : 'text-[#777]'
-              }`}
+              className={`no-underline font-sans font-light text-[0.85rem] tracking-[0.2em] uppercase ${location.pathname === link.path ? 'text-accent' : 'text-[#777]'
+                }`}
             >
               {link.label}
             </Link>

@@ -32,6 +32,8 @@ export const About: React.FC = () => {
               <img
                 src="src/assets/user.avif"
                 alt="Profile"
+                loading="lazy"
+                decoding="async"
                 style={{
                   width: '100%',
                   height: '100%',
