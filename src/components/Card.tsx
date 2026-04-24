@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Button } from './Button';
 import { Badge } from './Badge';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ export interface CardProps {
   link: string;
 }
 
-export const Card: React.FC<CardProps> = ({ id, title, image, description, tags = [], link }) => {
+export const Card: React.FC<CardProps> = memo(({ id, title, image, description, tags = [], link }) => {
   return (
     <div className="flex flex-col bg-[#0d0d0d] border border-white/5 hover:border-[#D4A843]/25 rounded-[3px] overflow-hidden max-w-[380px] w-full hover:shadow-xl hover:shadow-[#D4A843]/10 hover:scale-105 transition-all duration-300 group cursor-pointer">
       {/* Image */}
@@ -62,4 +62,4 @@ export const Card: React.FC<CardProps> = ({ id, title, image, description, tags 
       </div>
     </div>
   );
-};
+});
