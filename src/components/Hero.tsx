@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = memo(({ title, slogan, ctaText }) => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-[80px] bg-gradient-to-b from-transparent to-accent/40" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-[900px] animate-fade-up">
+      <div className="relative z-10 max-w-[900px]">
 
         {/* Eyebrow label */}
         <div className="inline-flex items-center gap-3 mb-10 animate-fade-up">
@@ -33,17 +33,17 @@ export const Hero: React.FC<HeroProps> = memo(({ title, slogan, ctaText }) => {
           <div className="w-[30px] h-[1px] bg-accent/50" />
         </div>
 
-        <h1 className="animate-fade-up-delay-1 font-serif font-light text-[clamp(3.5rem,9vw,8rem)] leading-tight py-2 tracking-[-0.02em] mb-6 bg-gradient-to-br from-accent-hover via-accent to-[#8a6020] text-transparent bg-clip-text">
+        <h1 className="font-serif font-light text-[clamp(3.5rem,9vw,8rem)] leading-tight py-2 tracking-[-0.02em] mb-6 bg-gradient-to-br from-accent-hover via-accent to-[#8a6020] text-transparent bg-clip-text">
           {title}
         </h1>
 
         {/* Slogan */}
-        <p className="animate-fade-up-delay-2 font-sans font-extralight text-[clamp(0.75rem,1.5vw,0.9rem)] tracking-[0.35em] uppercase text-[#4a4a4a] mb-14">
+        <p className="font-sans font-extralight text-[clamp(0.75rem,1.5vw,0.9rem)] tracking-[0.35em] uppercase text-[#4a4a4a] mb-14">
           {slogan}
         </p>
 
         {/* CTA */}
-        <div className="animate-fade-up-delay-3">
+        <div className="animate-fade-up">
           <Button 
             variant="primary" 
             onClick={handleScrollToProjects}
