@@ -9,13 +9,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Load custom fonts efficiently -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+    </noscript>
     <!-- Preload Logo (LCP Element) -->
-    <link rel="preload" href="/src/assets/NK-removebg-preview.png" as="image" />
+    <link rel="preload" href="/src/assets/NK-removebg-preview.webp" as="image" />
   </head>
   <body>
-    <div id="root"></div>
-
+    <div id="root">
+      <style>
+        body { background-color: #0a0a0a; margin: 0; overflow: hidden; }
+        .initial-loader {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          width: 100vw;
+          background-color: #0a0a0a;
+          color: #D4A843;
+          font-family: system-ui, -apple-system, sans-serif;
+          font-size: 15vw;
+          font-weight: 200;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+        }
+      </style>
+      <div class="initial-loader">PORTFOLIO</div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

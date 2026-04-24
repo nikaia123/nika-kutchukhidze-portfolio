@@ -43,7 +43,7 @@ export const ProjectDetails: React.FC = () => {
           {/* Project Image */}
           <div className="w-full h-[400px] overflow-hidden mb-10 border border-white/5 relative">
              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] to-transparent z-10" />
-             <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale-[20%]" />
+             <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale-[20%]" loading="lazy" decoding="async" />
           </div>
 
           {/* Tags */}
