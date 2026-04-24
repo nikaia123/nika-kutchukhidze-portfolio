@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useMobileMenu } from '../hooks/useMobileMenu';
 import logo from '../assets/NK-removebg-preview.webp';
@@ -12,7 +12,7 @@ interface HeaderProps {
   links: NavLink[];
 }
 
-export const Header: React.FC<HeaderProps> = ({ links }) => {
+export const Header: React.FC<HeaderProps> = memo(({ links }) => {
   const { isOpen, toggleMenu } = useMobileMenu(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -86,4 +86,4 @@ export const Header: React.FC<HeaderProps> = ({ links }) => {
       )}
     </header>
   );
-};
+});

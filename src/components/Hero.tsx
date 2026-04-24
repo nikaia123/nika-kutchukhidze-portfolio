@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { Button } from './Button';
 
 interface HeroProps {
@@ -7,7 +7,11 @@ interface HeroProps {
   ctaText: string;
 }
 
-export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
+export const Hero: React.FC<HeroProps> = memo(({ title, slogan, ctaText }) => {
+  const handleScrollToProjects = useCallback(() => {
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  }, []);
+
   return (
     <section className="relative min-h-[92vh] flex flex-col items-center justify-center text-center px-8 overflow-hidden bg-primary">
 
@@ -42,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
         <div className="animate-fade-up-delay-3">
           <Button 
             variant="primary" 
-            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={handleScrollToProjects}
           >
             {ctaText}
           </Button>
@@ -59,4 +63,4 @@ export const Hero: React.FC<HeroProps> = ({ title, slogan, ctaText }) => {
       <div className="absolute bottom-8 right-8 w-[30px] h-[30px] border-b border-r border-accent/20" />
     </section>
   );
-};
+});
