@@ -5,38 +5,20 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ნიკა კუჭუხიძე - Portfolio</title>
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Load custom fonts efficiently -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
-    </noscript>
-    <!-- Preload Logo (LCP Element) -->
-    <link rel="preload" href="/src/assets/NK-removebg-preview.webp" as="image" />
+    <style>
+      body{margin:0;background:#080808;font-family:system-ui,-apple-system,sans-serif}
+      .sk{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#D4A843}
+      .sk h1{font-size:clamp(3.5rem,9vw,8rem);font-weight:300;letter-spacing:-0.02em;margin:0;background:linear-gradient(135deg,#F5D98B,#D4A843,#8a6020);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;padding:0 2rem}
+      .sk p{font-size:0.8rem;letter-spacing:0.35em;text-transform:uppercase;color:#4a4a4a;font-weight:200}
+    </style>
   </head>
   <body>
     <div id="root">
-      <style>
-        body { background-color: #0a0a0a; margin: 0; overflow: hidden; }
-        .initial-loader {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          width: 100vw;
-          background-color: #0a0a0a;
-          color: #D4A843;
-          font-family: system-ui, -apple-system, sans-serif;
-          font-size: 15vw;
-          font-weight: 200;
-          letter-spacing: 0.2em;
-          text-transform: uppercase;
-        }
-      </style>
-      <div class="initial-loader">PORTFOLIO</div>
+      <div class="sk">
+        <p>— Portfolio —</p>
+        <h1>ნიკა კუჭუხიძე</h1>
+        <p>Frontend Web Developer | React & TypeScript</p>
+      </div>
     </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
