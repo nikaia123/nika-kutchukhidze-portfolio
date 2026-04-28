@@ -13,29 +13,24 @@ export const Projects: React.FC = () => {
   return (
     <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="ყველა პროექტი">
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '2rem', flexWrap: 'wrap' }}>
+        {/* Filter buttons */}
+        <div className="flex gap-4 justify-center mb-8 flex-wrap">
           {['all', 'React', 'TypeScript', 'UI/UX'].map(f => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              style={{
-                background: filter === f ? '#D4A843' : 'transparent',
-                color: filter === f ? '#080808' : '#D4A843',
-                border: '1px solid #D4A843',
-                padding: '0.5rem 1.5rem',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontFamily: "'DM Sans', sans-serif",
-                textTransform: 'uppercase',
-                fontSize: '0.8rem',
-                letterSpacing: '0.1em',
-                transition: 'all 0.3s ease'
-              }}
+              className={`px-6 py-2 rounded border border-accent font-sans uppercase text-[0.8rem] tracking-[0.1em] cursor-pointer transition-all duration-300 ${
+                filter === f
+                  ? 'bg-accent text-primary'
+                  : 'bg-transparent text-accent hover:bg-accent hover:text-primary'
+              }`}
             >
               {f}
             </button>
           ))}
         </div>
+
+        {/* Project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
           {projectsData.filter(p => filter === 'all' || p.tags.includes(filter)).map((project) => (
             <Card
@@ -50,17 +45,9 @@ export const Projects: React.FC = () => {
           ))}
         </div>
 
-        <div style={{ marginTop: '5rem' }}>
-          <h2 style={{ 
-            fontFamily: "'DM Sans', sans-serif", 
-            fontWeight: 300, 
-            fontSize: '1.5rem', 
-            letterSpacing: '0.2em', 
-            textTransform: 'uppercase', 
-            color: '#c8c8c8',
-            textAlign: 'center',
-            marginBottom: '2rem'
-          }}>
+        {/* GitHub Repos section */}
+        <div className="mt-20">
+          <h2 className="font-sans font-light text-2xl tracking-[0.2em] uppercase text-text-main text-center mb-8">
             ჩემი GitHub რეპოზიტორიები
           </h2>
           <GitHubRepo />

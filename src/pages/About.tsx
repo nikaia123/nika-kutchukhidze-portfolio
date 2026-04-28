@@ -5,126 +5,61 @@ export const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="ჩემ შესახებ">
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '4rem',
-          maxWidth: '1000px',
-          margin: '0 auto',
-        }}
-          className="md:flex-row"
-        >
+        <div className="flex flex-col md:flex-row items-center gap-16 max-w-[1000px] mx-auto">
 
           {/* Photo */}
-          <div style={{ flexShrink: 0 }}>
-            <div style={{
-              width: '260px',
-              height: '320px',
-              position: 'relative',
-            }}>
+          <div className="shrink-0">
+            <div className="w-[260px] h-[320px] relative">
               {/* Corner ornaments */}
-              <div style={{ position: 'absolute', top: '-8px', left: '-8px', width: '24px', height: '24px', borderTop: '1px solid rgba(212,168,67,0.5)', borderLeft: '1px solid rgba(212,168,67,0.5)' }} />
-              <div style={{ position: 'absolute', top: '-8px', right: '-8px', width: '24px', height: '24px', borderTop: '1px solid rgba(212,168,67,0.5)', borderRight: '1px solid rgba(212,168,67,0.5)' }} />
-              <div style={{ position: 'absolute', bottom: '-8px', left: '-8px', width: '24px', height: '24px', borderBottom: '1px solid rgba(212,168,67,0.5)', borderLeft: '1px solid rgba(212,168,67,0.5)' }} />
-              <div style={{ position: 'absolute', bottom: '-8px', right: '-8px', width: '24px', height: '24px', borderBottom: '1px solid rgba(212,168,67,0.5)', borderRight: '1px solid rgba(212,168,67,0.5)' }} />
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-t border-l border-accent/50" />
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-t border-r border-accent/50" />
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-b border-l border-accent/50" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-accent/50" />
 
               <img
                 src="src/assets/user.avif"
                 alt="Profile"
                 loading="lazy"
                 decoding="async"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  filter: 'grayscale(20%) brightness(0.8)',
-                  border: '1px solid rgba(212,168,67,0.12)',
-                }}
-                onMouseEnter={e => (e.target as HTMLElement).style.filter = 'grayscale(0%) brightness(0.9)'}
-                onMouseLeave={e => (e.target as HTMLElement).style.filter = 'grayscale(20%) brightness(0.8)'}
+                className="w-full h-full object-cover grayscale-[20%] brightness-[0.8] hover:grayscale-0 hover:brightness-[0.9] transition-all duration-500 border border-accent/[0.12]"
               />
             </div>
           </div>
 
           {/* Text */}
-          <div style={{
-            flexGrow: 1,
-            background: 'rgba(13,13,13,0.8)',
-            border: '1px solid rgba(255,255,255,0.04)',
-            padding: '3rem',
-            position: 'relative',
-          }}>
+          <div className="grow bg-secondary/80 border border-white/[0.04] p-12 relative">
             {/* Top gold accent */}
-            <div style={{
-              position: 'absolute',
-              top: 0,
-              left: '3rem',
-              right: '3rem',
-              height: '1px',
-              background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent)',
-            }} />
+            <div className="absolute top-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
 
-            <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 300,
-              fontSize: '1.1rem',
-              lineHeight: '2',
-              color: '#888',
-              marginBottom: '1.5rem',
-            }}>
+            <p className="font-serif font-light text-[1.1rem] leading-[2] text-text-muted mb-6">
               გამარჯობა, მე ვარ{' '}
-              <strong style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                color: '#D4A843',
-              }}>
+              <strong className="font-serif font-semibold text-accent">
                 ნიკოლოზ კუჭუხიძე
               </strong>
               , Frontend Web Developer. მივესალმები თანამედროვე ვებ-ტექნოლოგიებს და ვიზუალურ ესთეტიკას.
             </p>
 
-            <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 300,
-              fontSize: '1.1rem',
-              lineHeight: '2',
-              color: '#666',
-              marginBottom: '2rem',
-            }}>
+            <p className="font-serif font-light text-[1.1rem] leading-[2] text-[#666] mb-8">
               ძირითადად ვმუშაობ{' '}
-              <span style={{ color: '#A67C2E' }}>React</span>,{' '}
-              <span style={{ color: '#A67C2E' }}>TypeScript</span> და{' '}
-              <span style={{ color: '#A67C2E' }}>Tailwind CSS</span> ტექნოლოგიებით.
+              <span className="text-[#A67C2E]">React</span>,{' '}
+              <span className="text-[#A67C2E]">TypeScript</span> და{' '}
+              <span className="text-[#A67C2E]">Tailwind CSS</span> ტექნოლოგიებით.
             </p>
 
             {/* Skills row */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.04)', paddingTop: '1.5rem' }}>
+            <div className="flex flex-wrap gap-6 border-t border-white/[0.04] pt-6">
               {['React', 'TypeScript', 'Tailwind CSS', 'UI/UX'].map(skill => (
-                <span key={skill} style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontWeight: 200,
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  color: '#555',
-                  borderBottom: '1px solid rgba(212,168,67,0.25)',
-                  paddingBottom: '2px',
-                }}>
+                <span
+                  key={skill}
+                  className="font-sans font-extralight text-[0.65rem] tracking-[0.2em] uppercase text-[#555] border-b border-accent/25 pb-0.5"
+                >
                   {skill}
                 </span>
               ))}
             </div>
 
             {/* Bottom gold accent */}
-            <div style={{
-              position: 'absolute',
-              bottom: 0,
-              left: '3rem',
-              right: '3rem',
-              height: '1px',
-              background: 'linear-gradient(90deg, transparent, rgba(212,168,67,0.3), transparent)',
-            }} />
+            <div className="absolute bottom-0 left-12 right-12 h-[1px] bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
         </div>
       </Section>
