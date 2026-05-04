@@ -1,5 +1,6 @@
 import React from 'react';
 import { Section } from '../components/Section';
+import userPhoto from '../assets/user.avif';
 
 export const About: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ export const About: React.FC = () => {
               <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b border-r border-accent/50" />
 
               <img
-                src="src/assets/user.avif"
+                src={userPhoto}
                 alt="Profile"
                 loading="lazy"
                 decoding="async"

@@ -34,11 +34,11 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
 
         {/* Logo */}
         <Link to="/" className="no-underline flex items-center gap-3">
-          <img src={logo} alt="logo" width={160} height={160} className="object-contain" fetchPriority="high" decoding="sync" />
+          <img src={logo} alt="ნიკა კუჭუხიძე - Portfolio Logo" width={160} height={160} className="object-contain" fetchPriority="high" decoding="sync" />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav aria-label="მთავარი ნავიგაცია" className="hidden md:flex items-center gap-12">
           {links.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -62,6 +62,7 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
         {/* Mobile toggle */}
         <button
           onClick={toggleMenu}
+          aria-label={isOpen ? 'დახურე მენიუ' : 'გახსენი მენიუ'}
           className="md:hidden bg-transparent border border-accent/30 rounded px-3 py-2 text-accent text-base cursor-pointer tracking-widest"
         >
           {isOpen ? '✕' : '☰'}
@@ -70,7 +71,7 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <nav className="md:hidden absolute top-20 left-0 w-full bg-primary/98 border-b border-accent/10 py-8 px-10 flex flex-col gap-6">
+        <nav aria-label="მობილური ნავიგაცია" className="md:hidden absolute top-20 left-0 w-full bg-primary/98 border-b border-accent/10 py-8 px-10 flex flex-col gap-6">
           {links.map((link) => (
             <Link
               key={link.path}

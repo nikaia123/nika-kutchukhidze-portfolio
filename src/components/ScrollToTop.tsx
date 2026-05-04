@@ -7,7 +7,7 @@ export const ScrollToTop = () => {
   useEffect(() => {
     // როცა pathname (ლინკი) იცვლება, ვსქროლავთ ზემოთ
     window.scrollTo(0, 0);
-  }, [location]);
+  }, [location.pathname]);
 
   return null; // ეს კომპონენტი ვიზუალურად არაფერს აბრუნებს
 };
