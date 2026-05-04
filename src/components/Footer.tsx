@@ -6,18 +6,14 @@ export const Footer: React.FC = () => {
     <footer className="bg-primary border-t border-accent/10 pt-16 pb-12 px-10">
       <div className="max-w-[1400px] mx-auto">
         
-        {/* Main footer row */}
         <div className="flex flex-col items-center gap-10 mb-12">
           
-          {/* Brand */}
           <div className="font-serif font-semibold text-[1.6rem] tracking-[0.25em] bg-gradient-to-br from-accent-hover via-accent to-[#A67C2E] text-transparent bg-clip-text">
             MR. NIKA
           </div>
 
-          {/* Thin gold line */}
           <div className="w-[80px] h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
-          {/* Social links */}
           <div className="flex gap-12">
             {[
               { name: 'Facebook', url: '#facebook' },
@@ -36,13 +32,11 @@ export const Footer: React.FC = () => {
             ))}
           </div>
 
-          {/* Contact */}
           <p className="font-sans font-extralight text-[0.75rem] tracking-[0.15em] text-[#333]">
             info@example.com
           </p>
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col items-center gap-4 text-center">
           <p className="font-sans font-extralight text-[0.65rem] tracking-[0.2em] text-[#2a2a2a] uppercase">
             &copy; {new Date().getFullYear()} — ყველა უფლება დაცულია

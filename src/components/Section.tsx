@@ -9,10 +9,8 @@ interface SectionProps {
 export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
   return (
     <section id={id} className="py-28 px-10 max-w-[1400px] mx-auto w-full">
-      {/* Section header */}
       <div className="mb-20 text-center">
         
-        {/* Ornament above */}
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="w-[60px] h-[1px] bg-gradient-to-r from-transparent to-accent/40" />
           <div className="w-[4px] h-[4px] bg-accent/50 rotate-45" />
@@ -23,7 +21,6 @@ export const Section: React.FC<SectionProps> = ({ id, title, children }) => {
           {title}
         </h2>
 
-        {/* Ornament below */}
         <div className="flex items-center justify-center gap-2">
           <div className="w-[30px] h-[1px] bg-gradient-to-r from-transparent to-accent/30" />
           <div className="w-[50px] h-[1px] bg-accent/50" />

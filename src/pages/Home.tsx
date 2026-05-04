@@ -17,7 +17,6 @@ export const Home: React.FC = () => {
         ctaText="ნახე ჩემი ნამუშევრები"
       />
 
-      {/* Divider */}
       <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
 
       <Section id="projects" title="ბოლო პროექტები">

@@ -29,7 +29,6 @@ export const Contact: React.FC = () => {
     <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="დამიკავშირდით">
         <div className="max-w-[640px] mx-auto bg-secondary border border-white/5 p-14 relative group">
-          {/* Corner ornaments */}
           <div className="absolute top-[-1px] left-[-1px] w-[20px] h-[20px] border-t border-l border-accent/40" />
           <div className="absolute top-[-1px] right-[-1px] w-[20px] h-[20px] border-t border-r border-accent/40" />
           <div className="absolute bottom-[-1px] left-[-1px] w-[20px] h-[20px] border-b border-l border-accent/40" />
@@ -84,7 +83,6 @@ export const Contact: React.FC = () => {
               )}
             </div>
 
-            {/* Message */}
             <div className="flex flex-col gap-2.5">
               <label htmlFor="message" className="font-sans font-light text-[0.65rem] tracking-[0.25em] uppercase text-[#444]">
                 შეტყობინება

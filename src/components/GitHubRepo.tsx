@@ -48,7 +48,6 @@ export const GitHubRepo: React.FC = () => {
           className="w-full block no-underline group"
         >
           <div className="bg-secondary border border-white/5 p-8 h-full transition-all duration-300 relative group-hover:border-accent/30 group-hover:-translate-y-1">
-            {/* Corner ornaments */}
             <div className="absolute top-[-1px] left-[-1px] w-[10px] h-[10px] border-t border-l border-accent/40" />
             <div className="absolute top-[-1px] right-[-1px] w-[10px] h-[10px] border-t border-r border-accent/40" />
             <div className="absolute bottom-[-1px] left-[-1px] w-[10px] h-[10px] border-b border-l border-accent/40" />

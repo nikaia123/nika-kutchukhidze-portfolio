@@ -13,7 +13,6 @@ export const Projects: React.FC = () => {
   return (
     <div className="min-h-screen bg-primary text-text-main py-20">
       <Section title="ყველა პროექტი">
-        {/* Filter buttons */}
         <div className="flex gap-4 justify-center mb-8 flex-wrap">
           {['all', 'React', 'TypeScript', 'UI/UX'].map(f => (
             <button
@@ -30,7 +29,6 @@ export const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* Project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
           {projectsData.filter(p => filter === 'all' || p.tags.includes(filter)).map((project) => (
             <Card
@@ -45,7 +43,6 @@ export const Projects: React.FC = () => {
           ))}
         </div>
 
-        {/* GitHub Repos section */}
         <div className="mt-20">
           <h2 className="font-sans font-light text-2xl tracking-[0.2em] uppercase text-text-main text-center mb-8">
             ჩემი GitHub რეპოზიტორიები

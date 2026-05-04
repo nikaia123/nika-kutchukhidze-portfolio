@@ -32,12 +32,10 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
     >
       <div className="max-w-[1400px] mx-auto px-10 h-20 flex items-center justify-between">
 
-        {/* Logo */}
         <Link to="/" className="no-underline flex items-center gap-3">
           <img src={logo} alt="ნიკა კუჭუხიძე - Portfolio Logo" width={160} height={160} className="object-contain" fetchPriority="high" decoding="sync" />
         </Link>
 
-        {/* Desktop Nav */}
         <nav aria-label="მთავარი ნავიგაცია" className="hidden md:flex items-center gap-12">
           {links.map((link) => {
             const isActive = location.pathname === link.path;
@@ -59,7 +57,6 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
           })}
         </nav>
 
-        {/* Mobile toggle */}
         <button
           onClick={toggleMenu}
           aria-label={isOpen ? 'დახურე მენიუ' : 'გახსენი მენიუ'}
@@ -69,7 +66,6 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <nav aria-label="მობილური ნავიგაცია" className="md:hidden absolute top-20 left-0 w-full bg-primary/98 border-b border-accent/10 py-8 px-10 flex flex-col gap-6">
           {links.map((link) => (
