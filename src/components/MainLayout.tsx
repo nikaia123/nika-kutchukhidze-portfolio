@@ -12,6 +12,7 @@ const navigationLinks: NavLink[] = [
   
   { label: 'მთავარი', path: '/' },
   { label: 'ჩვენ შესახებ', path: '/about' },
+  { label: 'პროექტები', path: '/projects' },
   { label: 'კონტაქტი', path: '/contact' }
 ];
 

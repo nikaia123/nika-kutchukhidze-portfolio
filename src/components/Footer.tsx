@@ -16,38 +16,38 @@ export const Footer: React.FC = () => {
 
           <div className="flex gap-12">
             {[
-              { name: 'Facebook', url: '#facebook' },
-              { name: 'Instagram', url: '#instagram' },
+              { name: 'Facebook', url: 'https://www.facebook.com/' },
+              { name: 'Instagram', url: 'https://www.instagram.com/' },
               { name: 'GitHub', url: 'https://github.com/nikaia123/nika-kutchukhidze-portfolio' }
             ].map((social) => (
               <a
                 key={social.name}
                 href={social.url}
-                target={social.name === 'GitHub' ? '_blank' : undefined}
-                rel={social.name === 'GitHub' ? 'noreferrer' : undefined}
-                className="font-sans font-light text-[0.7rem] tracking-[0.2em] uppercase text-[#444] no-underline transition-colors duration-300 hover:text-accent"
+                target="_blank"
+                rel="noreferrer"
+                className="font-sans font-light text-[0.7rem] tracking-[0.2em] uppercase text-white/40 no-underline transition-colors duration-300 hover:text-accent"
               >
                 {social.name}
               </a>
             ))}
           </div>
 
-          <p className="font-sans font-extralight text-[0.75rem] tracking-[0.15em] text-[#333]">
+          <p className="font-sans font-extralight text-[0.75rem] tracking-[0.15em] text-white/35">
             info@example.com
           </p>
         </div>
 
         <div className="border-t border-white/5 pt-8 flex flex-col items-center gap-4 text-center">
-          <p className="font-sans font-extralight text-[0.65rem] tracking-[0.2em] text-[#2a2a2a] uppercase">
+          <p className="font-sans font-extralight text-[0.65rem] tracking-[0.2em] text-white/30 uppercase">
             &copy; {new Date().getFullYear()} — ყველა უფლება დაცულია
           </p>
           <div className="flex gap-6 items-center">
             {[{ label: 'Privacy Policy', path: '/privacy' }, { label: 'Terms & Conditions', path: '/terms' }].map((item, i) => (
               <React.Fragment key={item.path}>
-                {i > 0 && <span className="text-[#1a1a1a] text-[0.6rem]">·</span>}
+                {i > 0 && <span className="text-white/20 text-[0.6rem]">·</span>}
                 <Link
                   to={item.path}
-                  className="font-sans font-light text-[0.65rem] tracking-[0.15em] uppercase text-[#2a2a2a] no-underline transition-colors duration-300 hover:text-accent"
+                  className="font-sans font-light text-[0.65rem] tracking-[0.15em] uppercase text-white/30 no-underline transition-colors duration-300 hover:text-accent"
                 >
                   {item.label}
                 </Link>

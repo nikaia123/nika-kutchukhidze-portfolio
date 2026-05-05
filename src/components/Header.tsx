@@ -67,19 +67,27 @@ export const Header: React.FC<HeaderProps> = memo(({ links }) => {
       </div>
 
       {isOpen && (
-        <nav aria-label="მობილური ნავიგაცია" className="md:hidden absolute top-20 left-0 w-full bg-primary/98 border-b border-accent/10 py-8 px-10 flex flex-col gap-6">
-          {links.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={toggleMenu}
-              className={`no-underline font-sans font-light text-[0.85rem] tracking-[0.2em] uppercase ${location.pathname === link.path ? 'text-accent' : 'text-[#777]'
-                }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <>
+          {/* Backdrop overlay */}
+          <div
+            className="md:hidden fixed inset-0 top-20 bg-black/60 backdrop-blur-sm z-40"
+            onClick={toggleMenu}
+            aria-hidden="true"
+          />
+          <nav aria-label="მობილური ნავიგაცია" className="md:hidden absolute top-20 left-0 w-full bg-primary border-b border-accent/15 py-8 px-10 flex flex-col gap-6 z-50 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+            {links.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={toggleMenu}
+                className={`no-underline font-sans font-light text-[0.85rem] tracking-[0.2em] uppercase transition-colors duration-300 ${location.pathname === link.path ? 'text-accent' : 'text-[#777] hover:text-accent'
+                  }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </>
       )}
     </header>
   );
