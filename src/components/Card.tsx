@@ -10,9 +10,10 @@ export interface CardProps {
   description: string;
   tags?: string[];
   link: string;
+  priority?: boolean;
 }
 
-export const Card: React.FC<CardProps> = memo(({ id, title, image, description, tags = [], link }) => {
+export const Card: React.FC<CardProps> = memo(({ id, title, image, description, tags = [], link, priority }) => {
   return (
     <div className="flex flex-col bg-[#0d0d0d] border border-white/5 hover:border-[#D4A843]/25 rounded-[3px] overflow-hidden max-w-[380px] w-full hover:shadow-xl hover:shadow-[#D4A843]/10 hover:scale-105 transition-all duration-300 group cursor-pointer">
       <div className="h-[220px] overflow-hidden relative">
@@ -20,8 +21,8 @@ export const Card: React.FC<CardProps> = memo(({ id, title, image, description, 
         <img
           src={image}
           alt={title}
-          loading="lazy"
-          decoding="async"
+          loading={priority ? undefined : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
           className="w-full h-full object-cover grayscale-[30%] brightness-50 group-hover:grayscale-0 group-hover:brightness-75 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
         />
       </div>

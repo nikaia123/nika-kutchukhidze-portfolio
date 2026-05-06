@@ -58,7 +58,6 @@ export const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-primary text-text-main py-20">
 
-      {/* ─── Hero / Intro ─── */}
       <Section title="ჩემ შესახებ">
         <div className="flex flex-col md:flex-row items-center gap-16 max-w-[1000px] mx-auto">
 
@@ -72,8 +71,7 @@ export const About: React.FC = () => {
               <img
                 src={userPhoto}
                 alt="ნიკოლოზ კუჭუხიძე — Frontend Developer"
-                loading="lazy"
-                decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-cover grayscale-[20%] brightness-[0.8] hover:grayscale-0 hover:brightness-[0.9] transition-all duration-500 border border-accent/[0.12]"
               />
             </div>
@@ -120,7 +118,6 @@ export const About: React.FC = () => {
         </div>
       </Section>
 
-      {/* ─── Skills ─── */}
       <Section title="უნარები">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8 max-w-[900px] mx-auto">
           {skills.map(skill => (
@@ -144,7 +141,6 @@ export const About: React.FC = () => {
         </div>
       </Section>
 
-      {/* ─── What I Do ─── */}
       <Section title="რას ვაკეთებ">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[960px] mx-auto">
           {services.map(service => (
@@ -170,16 +166,13 @@ export const About: React.FC = () => {
         </div>
       </Section>
 
-      {/* ─── Experience / Timeline ─── */}
       <Section title="გამოცდილება">
         <div className="max-w-[700px] mx-auto relative">
-          {/* Vertical line */}
           <div className="absolute left-[7px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-accent/40 via-accent/20 to-transparent" />
 
           <div className="flex flex-col gap-14">
             {timeline.map((item, i) => (
               <div key={i} className="pl-10 relative">
-                {/* Dot */}
                 <div className="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-accent/50 bg-primary" />
 
                 <span className="font-sans text-[0.7rem] tracking-[0.2em] uppercase text-accent/60 mb-2 block">

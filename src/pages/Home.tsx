@@ -21,7 +21,7 @@ export const Home: React.FC = () => {
 
       <Section id="projects" title="ბოლო პროექტები">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
-          {projectsData.map((project) => (
+          {projectsData.map((project, index) => (
             <Card
               key={project.id}
               id={project.id}
@@ -30,6 +30,7 @@ export const Home: React.FC = () => {
               description={project.description}
               tags={project.tags}
               link={project.link}
+              priority={index < 3}
             />
           ))}
         </div>

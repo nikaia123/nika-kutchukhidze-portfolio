@@ -30,7 +30,7 @@ export const Projects: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full">
-          {projectsData.filter(p => filter === 'all' || p.tags.includes(filter)).map((project) => (
+          {projectsData.filter(p => filter === 'all' || p.tags.includes(filter)).map((project, index) => (
             <Card
               key={project.id}
               id={project.id}
@@ -39,6 +39,7 @@ export const Projects: React.FC = () => {
               description={project.description}
               tags={project.tags}
               link={project.link}
+              priority={index < 3}
             />
           ))}
         </div>
